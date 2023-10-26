@@ -11,7 +11,7 @@ const getDog = async () => {
     const imageUrl = data.message; // Assuming the URL is in the "message" property
 
     console.log(imageUrl);
-    dog.innerHTML = `<img src="${imageUrl}" height =300 width = 300 />`;
+    dog.innerHTML += `<img src="${imageUrl}" height =300 width = 300 />`;
 }
 
 getNewDog.addEventListener("click", function(){
