@@ -1,3 +1,13 @@
-h2{
-    color: brown;
+.dog{
+    width: 300px;
+    height: 300px;    
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.getNewDog{
+    color: rgb(7, 7, 7);
+    position: relative;
 }

@@ -1,20 +1,26 @@
 
-class car {
+const body = document.querySelector("body");
+const getNewDog = document.querySelector(".getNewDog");
+const dog = document.querySelector(".dog");
+body.append(dog)
 
-    constructor (name, speed, color){
-        this.name = name;
-        this.speed = speed;
-        this.color = color
-    }
+const getDog = async () => {
+    const url = "https://dog.ceo/api/breeds/image/random";
+    const response = await fetch(url);
+    const data = await response.json();
+    const imageUrl = data.message; // Assuming the URL is in the "message" property
 
-    drive(){
-        console.log("the car is on Drive")
-    }
-
+    console.log(imageUrl);
+    dog.innerHTML = `<img src="${imageUrl}" height =300 width = 300 />`;
 }
- const ferrari = new car('Ferrari', 300,'red');
- console.log(ferrari.color)
 
- ferrari.drive()
+getNewDog.addEventListener("click", function(){
 
- 
+    getDog()
+
+
+} )
+
+
+
+
