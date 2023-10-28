@@ -1,3 +1,8 @@
+const input = document.getElementById("input");
+const search = document.getElementById("search");
+
+// we want the search button to take user input to search for dogs using their calls.
+
 
 const body = document.querySelector("body");
 const getNewDog = document.querySelector(".getNewDog");
@@ -15,11 +20,11 @@ const getDog = async () => {
 }
 
 getNewDog.addEventListener("click", function(){
-
     getDog()
 
-
 } )
+
+
 
 
 
