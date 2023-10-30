@@ -1,20 +1,78 @@
 body {
     background: url(image_7247-Dog-Ownership.jpg) no-repeat center/cover;
-    height: 100vh;
+    height: 150vh;
     width: 100%;
     display: flex;
     flex-direction: column; /* Center content vertically */
     align-items: center; /* Center content horizontally */
 }
 
+
+.box {
+    background: ;
+    z-index: 1; /* Set a higher z-index value to ensure it's on top */
+}
+
+
+
 .menu {
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     padding: 10px;
     top: 37px;
     left: 0;
+    width: 100%; /* Make the menu span the full width of the viewport */
+    z-index: 100; /* Set a high z-index to ensure it stays on top of other elements */
+
 }
+
+
+
+.bark {
+    position: absolute;
+    font-size: 50px;
+    font-family: cursive;
+    left: 0; /* Initial horizontal position */
+    top: 0px; /* Initial vertical position */
+    animation: moveBark 4s forwards; /* Use the moveBark animation for 2 seconds */
+}
+
+@keyframes moveBark {
+    50% {
+        left: 550px;
+        top: 0px;
+    }
+    100% {
+        left: 500px; /* Final horizontal position */
+        top: 0px; /* Final vertical position */
+    }
+}
+
+.bark span {
+    color: rgb(21, 19, 19);
+    position: absolute;
+    font-size: 50px;
+    font-family: cursive;
+    left: 0; /* Initial horizontal position */
+    top: 1px; /* Initial vertical position */
+    animation: moveBarkSpan 5s forwards; /* Use the moveBarkSpan animation for 5 seconds */
+}
+
+@keyframes moveBarkSpan {
+    50% {
+        left: 200px;
+        top: 1px;
+    }
+    100% {
+        left: 150px; /* Final horizontal position */
+        top: 1px; /* Final vertical position */
+    }
+}
+
+
+
+
 
 .dog-container {
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -22,7 +80,7 @@ body {
     padding: 10px;
 
     width: 100%;
-    height: 60vh;
+    height: 100vh;
     overflow-wrap: normal;
 
 }
@@ -51,6 +109,11 @@ body {
     background: rgb(11, 12, 12);
     border-color: aliceblue;
     border-style: solid;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5); 
+
+    border-radius: 10px;
 }
 
 .input {
@@ -62,6 +125,11 @@ body {
     background: rgb(242, 244, 246);
     border-color: aliceblue;
     border-style: solid;
+    border-radius: 2px;
+
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5); 
 }
 
 .search {
@@ -73,12 +141,17 @@ body {
     background: rgb(26, 36, 48);
     border-color: aliceblue;
     border-style: solid;
+    border-radius: 10px;
+
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5); 
 }
 
 .header {
     display: block;
     position: absolute;
-    margin-left: 500px;
+    margin-left: 100px;
     padding: 0px;
     margin-top: 0px;
     justify-content: left;
@@ -93,6 +166,14 @@ body {
     border-inline-color: transparent; /* Set the text fill color to transparent */
     text-decoration-color: rgb(242, 239, 239);
     text-shadow: 0px 0px 2px rgba(251, 246, 246, 0.5);
+
+}
+
+.header.poem{
+    padding: 50px ;
+    text-shadow: none;
+    stroke: none;
+
 }
 
 .header h1 {
@@ -124,4 +205,11 @@ font-weight: 1000;
 border-style: none;
 box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Maintain the embossed box shadow on hover */
 text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5); /* Maintain the text embossing on hover */
+}
+
+.bone{
+    position: absolute;
+    width: 400px;
+    padding: 200px 520px;
+
 }
