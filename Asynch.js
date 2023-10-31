@@ -1,4 +1,5 @@
 const input = document.querySelector(".input");
+
 const search = document.querySelector("#search"); // Fix the id selector here
 const dogContainer = document.querySelector('.dog-container');
 const dog = document.querySelector('.dog'); // Select the '.dog' div to add new images
