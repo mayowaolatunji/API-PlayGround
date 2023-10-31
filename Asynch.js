@@ -1,8 +1,7 @@
 const input = document.querySelector(".input");
-
-const search = document.querySelector("#search"); // Fix the id selector here
+const search = document.querySelector("#search");
 const dogContainer = document.querySelector('.dog-container');
-const dog = document.querySelector('.dog'); // Select the '.dog' div to add new images
+const dog = document.querySelector('.dog');
 
 // Function to fetch a random dog image based on the search input
 const browseDog = async (browse) => {
@@ -10,24 +9,36 @@ const browseDog = async (browse) => {
   const response = await fetch(link);
   const data = await response.json();
   const imageUrl = data.message;
+  const name = browse; // Get the breed name from the input
 
   if (data.status === "error") {
-    // Handle the case where no image is found for the given breed
     alert("No dog image found for the specified breed.");
   } else {
+    // Create a new container for the image and name
+    const dogItem = document.createElement('div');
+    dogItem.classList.add('dog-item');
+
     // Create a new image element
     const newImage = document.createElement('img');
     newImage.src = imageUrl;
     newImage.height = 300;
     newImage.width = 300;
 
-    // Add the new image to the 'dog' div
-    dog.appendChild(newImage);
+    // Create an h3 element for the breed name
+    const nameElement = document.createElement('h3');
+    nameElement.textContent = name;
+
+    // Append the image and name to the container
+    dogItem.appendChild(newImage);
+    dogItem.appendChild(nameElement);
+
+    // Add the new container to the 'dog' div
+    dogContainer.appendChild(dogItem);
 
     const maxImages = 8; // Adjust this number based on your container size
-    if (dogContainer.children.length >= maxImages) {
-      // Container is filled, remove the first image
-      dogContainer.firstElementChild.remove();
+    if (dogContainer.children.length > maxImages) {
+      // Container is filled, remove the first container
+      dogContainer.removeChild(dogContainer.firstElementChild);
     }
   }
 };
@@ -45,19 +56,31 @@ const getDog = async () => {
   const data = await response.json();
   const imageUrl = data.message;
 
+  // Create a new container for the image and name
+  const dogItem = document.createElement('div');
+  dogItem.classList.add('dog-item');
+
   // Create a new image element
   const newImage = document.createElement('img');
   newImage.src = imageUrl;
   newImage.height = 300;
   newImage.width = 300;
 
-  // Add the new image to the 'dog' div
-  dog.appendChild(newImage);
+  // Create an h3 element for the breed name (you can set a default name)
+  const nameElement = document.createElement('h3');
+  nameElement.textContent = "Random Dog";
+
+  // Append the image and name to the container
+  dogItem.appendChild(newImage);
+  dogItem.appendChild(nameElement);
+
+  // Add the new container to the 'dog' div
+  dogContainer.appendChild(dogItem);
 
   const maxImages = 8; // Adjust this number based on your container size
-  if (dogContainer.children.length >= maxImages) {
-    // Container is filled, remove the first image
-    dogContainer.firstElementChild.remove();
+  if (dogContainer.children.length > maxImages) {
+    // Container is filled, remove the first container
+    dogContainer.removeChild(dogContainer.firstElementChild);
   }
 };
 
